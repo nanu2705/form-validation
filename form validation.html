@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    body{
+        background-color: rgba(137, 43, 226, 0.616);
+    }
+     .main{
+        margin: 200px 500px;
+       align-items: center;
+     
+     }
+</style>
+<body>
+
+    
+ <div class="main">
+                    <h2>Login Form</h2>
+     <form >
+        <span>Email:</span>
+        <input type="text" placeholder="Email"  id="user"> <br> <br>
+        <span>Password:</span>
+        <input type="password" placeholder="Password"  id="password"> <br> <br> 
+
+        <input type="checkbox" onclick="box()">Show Password  <br><br>
+        <input type="submit" value="submit" onclick="return show()"> 
+     </form>
+     <p id="demo"></p>
+    </div>
+
+</body>
+
+<script>
+
+function show(){
+    var x = document.getElementById('user').value
+    var y = document.getElementById('password').value;
+
+    if(x.length===0){
+        document.getElementById("demo").innerHTML="**error**"
+        return false
+    }
+    
+
+    if(x=='ab'){
+        document.getElementById("demo").innerHTML="**ab is not allowed**"
+        return false
+    }
+
+      
+    if(x.match(/\s/g)){
+        document.getElementById("demo").innerHTML="**space is not allowed**"
+        return false
+    }
+   
+    if(y.match(/\s/g)){
+        document.getElementById("demo").innerHTML="**space is not allowed in password**"
+        return false
+    }
+    if(y.match('[!@#$%&*()]')){
+        document.getElementById("demo").innerHTML="**special not allowed in password**"
+        return false
+    }
+}   
+    function box(){
+        var z=document.getElementById("password");
+        if(z.type==="password"){
+        z.type="text";}
+    else{
+        z.type="password";
+    }
+    }
+
+
+    
+</script>
+</html>
